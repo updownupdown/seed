@@ -1,0 +1,2 @@
+# seed
+WordPress Seed Framework
