@@ -1,0 +1,7 @@
+[ ]  Improve default icon font selection
+[ ]  Look into SVG icons again
+[ ]  Easy way to add class to image that will make it a lightbox image? Might need to enqueue the lightbox script on all pages, not ideal...
+[ ]  see if possible to remove iThemes Security, and replace with direct tweaks to theme instead
+[ ]  
+[ ]  
+[ ]  

@@ -1,0 +1,14 @@
+icon-phone
+icon-email-open
+icon-play-round
+icon-arrow-medium-left
+icon-arrow-medium-right
+icon-quote-square-open
+icon-plus
+icon-minus
+icon-mag
+icon-triangle-right
+icon-calendar
+icon-folder
+icon-tags
+icon-warning

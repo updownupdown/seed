@@ -1,0 +1,67 @@
+/**********************/
+/*** QUALITY CHECKS ***/
+/**********************/
+
+PROJECT SPECIFIC
+[ ]  
+[ ]  
+[ ]  
+[ ]  
+[ ]  
+
+
+CODE
+[ ]  HTML markup tested with W3C validator
+[ ]  Browser testing (Chrome, Firefox, IE10)
+[ ]  Google Maps API needed for project? Replace 'seed' one or delete (also delete flexible map panel)
+[ ]  Test WP Super Cache before launch if needed, disable plugin and stray files before launch
+[ ]  Check Chrome & Firefox console for JS/CSS warnings/errors
+[ ]  "iThemes Security" is installed with basic protection, login URL changed to /wordpress
+[ ]  Responsive design testing
+[ ]  Test search functionality
+[ ]  GTMetrix Test (dev)
+
+
+SEO
+[ ]  Add Meta Description to main pages (Yoast SEO)
+[ ]  Setup "Google XML Sitemaps" plugin
+[ ]  Add robots.txt file in root dir with "Sitemap: http://www.[DOMAIN].com/sitemap.xml" in it (??? TBC)
+[ ]  Disable Yoast sitemaps
+[ ]  Check all templates in WP debug mode, remove debug mode
+[ ]  Install Broken Links Checker, remove 'strikethrough' option
+[ ]  Set relevant CPT to noindex/hide under SEO plugin
+[ ]  "Redirection" plugin installed, redirects from old website added
+
+
+DESIGN
+[ ]  Multi-resolution favicons (www.favicomatic.com)
+[ ]  Login logo added
+[ ]  404 page styled and functional
+[ ]  Set Chrome Mobile tab colour in header.php
+[ ]  Admin bar doesn't overlay sticky nav
+[ ]  Customize background colours in Hero Grid panel, and Flexible Panel Options
+[ ]  Test all flexible panels on a test page near the end of dev
+
+
+MISC
+[ ]  Admin user for Jordanna created
+[ ]  "Documentation" page setup with custom tabs
+[ ]  CPTs have custom columns in admin
+[ ]  CPTs have useful descriptions for each custom field
+[ ]  Social media icons have working links
+
+
+POST-LAUNCH
+[ ]  Make sure website is indexable! (Settings > Reading)
+[ ]  Mobile-Friendly Google Test
+[ ]  Check Google Fonts/TypeKit fonts in browser/mobile
+[ ]  Make sure WP Debug is set to false
+[ ]  Update & optimize .htaccess file (Gzip/keep-alive/XMLRPC disabled)
+[ ]  Check Theme Settings for Google Analytics, make sure status set to 'live', HotJar?
+[ ]  Manual files and database back up
+[ ]  UpdraftPlus setup and tested
+[ ]  Add website to WordPress maintenance list, and list paid plugins!
+[ ]  Disable Broken Links Checker
+[ ]  Contact forms tested
+[ ]  WP Super Cache setup and tested
+[ ]  GTMetrix Test (live)

@@ -1,0 +1,8 @@
+// Limit Number of Revisions in DB
+define( 'WP_POST_REVISIONS', 10 );
+
+// Disable File Editor
+define( 'DISALLOW_FILE_EDIT', true );
+
+// Increase memory limit
+define('WP_MEMORY_LIMIT', '256M');
