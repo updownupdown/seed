@@ -82,7 +82,7 @@ a{
 	&:link,
 	&:visited{color:@link-color;font-weight:700;text-decoration:none;outline:0}
 	&:hover,
-	&:focus{color:@link-color-hover;text-decoration:none;}	
+	&:focus{color:@link-color-hover;text-decoration:none;}
 }
 
 @line-color: rgba(0,0,0,.08);
@@ -145,7 +145,7 @@ body .gform_wrapper{
 		margin:0 @button-side-margin 10px 0;
 		padding:12px;
 
-		border-radius:0;	
+		border-radius:0;
 		border:1px solid rgba(0,0,0,.06);
 		background:#f4f4f4;
 		.box-shadow(none);
@@ -157,7 +157,7 @@ body .gform_wrapper{
 			background:#444;
 			color:#fff;
 		}
-		&:focus{outline:none}	
+		&:focus{outline:none}
 	}
 
 	// Margin adjustments for buttons
@@ -177,7 +177,7 @@ body .gform_wrapper{
 // ========== Inputs ========== //
 body,
 body .gform_wrapper,
-body .gform_wrapper li.gfield_error{	
+body .gform_wrapper li.gfield_error{
 	input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
 	.input,
 	input[type="text"],
@@ -198,7 +198,7 @@ body .gform_wrapper li.gfield_error{
 		border:0;
 		.box-shadow(0 1px 0 rgba(0,0,0,.06));
 
-		background:none;	
+		background:none;
 
 		font-size:16px;line-height:normal;font-weight:400;color:@offblack;
 
@@ -327,7 +327,7 @@ body .gform_wrapper{
 			}
 		}
 
-		
+
 		// Section Break
 		.gfield.gsection{
 			border-bottom:3px solid rgba(0,0,0,.1);
@@ -360,7 +360,7 @@ body .gform_wrapper{
 
 		// Labels
 		.gfield_label{
-			
+
 			// Original
 			&.original{
 				.transition(none);
@@ -370,7 +370,7 @@ body .gform_wrapper{
 
 				font-size:@label-size-small;line-height:@label-size-small;
 			}
-			
+
 			// Cloned
 			&.clone{
 				cursor:text;
@@ -383,7 +383,7 @@ body .gform_wrapper{
 				// Clone on focus + when field full
 				.gfield.full,
 				.gfield.focused{
-					.gfield_label.clone{					
+					.gfield_label.clone{
 						top:0;
 						margin-top:-(@label-size);
 						font-size:@label-size-small;
@@ -460,10 +460,10 @@ body .search-form{
 		top:0;right:0;
 		width:@search-size;height:100%;
 		margin:0;padding:0;
-		
+
 		border:0;
-		background:none;	
-		.box-shadow(none);	
+		background:none;
+		.box-shadow(none);
 
 		font-size:18px;color:rgba(0,0,0,.3);
 
@@ -576,7 +576,7 @@ section{
 	.no-list();
 	.medium-transition();
 	position:absolute;z-index:100;
-	bottom:20px;right:-@main-menu-side-padding;	
+	bottom:20px;right:-@main-menu-side-padding;
 
 	.small &{bottom:0}
 
@@ -597,7 +597,7 @@ section{
 		&:hover > a,
 		&.current-page-ancestor > a,
 		&.current-menu-item > a{color:#333}
-		
+
 	}
 
 	// Top level
@@ -637,8 +637,8 @@ section{
 				font-size:16px;color:#333;
 			}
 			& a:hover,
-			&.current_page_item a{background-color:rgba(0,0,0,.04);color:#333}		
-		}	
+			&.current_page_item a{background-color:rgba(0,0,0,.04);color:#333}
+		}
 
 		.sub-menu{top:0}
 		li:hover > .sub-menu{left:100%}
@@ -671,7 +671,7 @@ section{
 	margin:0;
 
 	font-size:13px;color:@footer-copy;
-	
+
 	.divider{color:fade(@footer-copy, 50%)}
 
 	.desktop-only{display:inline}
@@ -771,16 +771,16 @@ section{
 		.current,
 		a.page-numbers{
 			display:inline-block;
-			margin:0 1px 8px;padding:14px;	
-			
+			margin:0 1px 8px;padding:14px;
+
 			border:1px solid #ddd;
-			background:rgba(0,0,0,.03);		
+			background:rgba(0,0,0,.03);
 
 			font-size:15px;line-height:1;color:#555;font-weight:400;
 
-			&:hover{			
+			&:hover{
 				border-color:#222;
-				background:#333;			
+				background:#333;
 				color:#eee;
 				text-decoration:none;
 			}
@@ -789,16 +789,16 @@ section{
 		.current,
 		.current:hover{
 			border-color:#222;
-			background:#333;				
+			background:#333;
 			color:#eee;
 			text-decoration:none;
 		}
-		
+
 		.prev:before{content:"\2039";padding-right:6px}
 		.next:after{content:"\203A";padding-left:6px}
 		.dots{
 			margin-left:10px;margin-right:10px;
-			border:0;background:none;color:#999;	
+			border:0;background:none;color:#999;
 		}
 	}
 }
@@ -809,7 +809,7 @@ section{
 	.clear();
 	width:100%;
 	margin:50px 0 30px;
-	padding:0;	
+	padding:0;
 
 	li{
 		list-style-type:none;
@@ -820,12 +820,12 @@ section{
 			display:block;
 			padding:15px;
 
-			font-size:16px;line-height:1.2;	
+			font-size:16px;line-height:1.2;
 
 			border:1px solid @line-color;
 			background:#fcfcfc;
 
-			small{font-size:14px;font-weight:300;color:#aaa}			
+			small{font-size:14px;font-weight:300;color:#aaa}
 
 			span{
 				position:absolute;
@@ -885,8 +885,8 @@ section{
 		li ul{.clear();margin-bottom:20px}
 		li li{border-top:0;margin:0 0 0 28px;font-size:14px}
 		li li a{padding:4px 0}
-	}	
-	
+	}
+
 	ul{margin:-8px 0 12px 20px;padding:0}
 }
 

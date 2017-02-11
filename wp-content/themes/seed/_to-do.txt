@@ -1,7 +1,11 @@
 [ ]  Improve default icon font selection
 [ ]  Look into SVG icons again
 [ ]  Easy way to add class to image that will make it a lightbox image? Might need to enqueue the lightbox script on all pages, not ideal...
-[ ]  see if possible to remove iThemes Security, and replace with direct tweaks to theme instead
-[ ]  
-[ ]  
-[ ]  
+[ ]  remove iThemes Security, and replace with direct tweaks to theme instead
+   - /wordpress/ login URL? ask host support if useful.
+   - ??
+[ ]  Switch to less-autocompile when using git exclusively - see: http://michaelsoriano.com/working-with-less-atom-and-chrome-developer-tools/
+[ ] better way to serve scaled images and backgrounds
+[ ]
+[ ]
+[ ]

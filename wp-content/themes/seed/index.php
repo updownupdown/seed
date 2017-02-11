@@ -45,16 +45,16 @@
 				echo '<section class="loop-wrap index-loop">';
 
 					while ( have_posts() ) : the_post();
-						get_template_part('loop'); 
+						get_template_part('loop');
 					endwhile;
-				
+
 				echo '</section>';
 
-				include 'pagination.php';
-			
+				include(locate_template('pagination.php'));
+
 			endif;
 
-			wp_reset_query();			
+			wp_reset_query();
 			?>
 		</div>
 

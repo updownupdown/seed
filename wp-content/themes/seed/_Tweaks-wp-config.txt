@@ -5,4 +5,4 @@ define( 'WP_POST_REVISIONS', 10 );
 define( 'DISALLOW_FILE_EDIT', true );
 
 // Increase memory limit
-define('WP_MEMORY_LIMIT', '256M');
+define('WP_MEMORY_LIMIT', '128M');
