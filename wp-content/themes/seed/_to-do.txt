@@ -1,11 +1,21 @@
+[ ]  URGENT - combine flexible common and flexible lightbox? see if declarations are still up to date, and whether the youtube thing belongs in the photo gallery (I doubt it)
+[ ] new flexible panel - full image
+[ ] fix fields and buttons mess (Gravity Forms CSS, simplify)
+
+[ ]  Easy way to add class to image that will make it a lightbox image? Might need to enqueue the lightbox script on all pages, not ideal...
+
+
+[ ] better way to serve scaled images and backgrounds
+[ ] new field: full width image only field
+[ ] full screen mobile menu, simplify fade/mask
+
+
+==========================
+NOT URGENT
+
 [ ]  Improve default icon font selection
 [ ]  Look into SVG icons again
-[ ]  Easy way to add class to image that will make it a lightbox image? Might need to enqueue the lightbox script on all pages, not ideal...
-[ ]  remove iThemes Security, and replace with direct tweaks to theme instead
+[ ]  on WebSavers, remove iThemes Security, and replace with direct tweaks to theme instead
    - /wordpress/ login URL? ask host support if useful.
    - ??
-[ ]  Switch to less-autocompile when using git exclusively - see: http://michaelsoriano.com/working-with-less-atom-and-chrome-developer-tools/
-[ ] better way to serve scaled images and backgrounds
-[ ]
-[ ]
-[ ]
+[ ]  On git, switch to less-autocompile when using git exclusively - see: http://michaelsoriano.com/working-with-less-atom-and-chrome-developer-tools/

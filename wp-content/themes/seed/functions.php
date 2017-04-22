@@ -5,10 +5,12 @@
 require_once(get_template_directory() . '/css/lessc.inc.php');
 require_once(get_template_directory() . '/css/wp-less.php' );
 
+$google_api_key = 'AIzaSyDK7N9xRGx6pQctHZuchp6I9ME6ZVGxqeY';
+
 if(!is_admin()){ add_action('wp_enqueue_scripts', 'my_scripts_enqueue'); }
 function my_scripts_enqueue(){
 
-	// ===== CSS / LESS ===== //	
+	// ===== CSS / LESS ===== //
 	wp_enqueue_style('style', get_stylesheet_directory_uri() . '/style.less');
 
 
@@ -33,7 +35,7 @@ function my_scripts_enqueue(){
 	// wp_enqueue_style('lightgallery-css');
 
 
-	// ===== FLEXIBLE CONTENT ===== //	
+	// ===== FLEXIBLE CONTENT ===== //
 
 	// Flexible - Common
 	wp_register_script('flexible-common', get_template_directory_uri() . '/js/flexible-common.js', array('jquery', 'jquery-ui'), '1.0', true);
@@ -46,18 +48,16 @@ function my_scripts_enqueue(){
 
 
 	// ===== ACF Maps ===== //
-	/*
-	$google_api_key = 'AIzaSyDK7N9xRGx6pQctHZuchp6I9ME6ZVGxqeY';
+	global $google_api_key;
 	wp_register_script('script-googlemaps', 'https://maps.googleapis.com/maps/api/js?key=' . $google_api_key, null, '1.0', true);
 	wp_register_script('script-acf-maps', get_template_directory_uri() . '/js/script-acf-maps.js', array('script-googlemaps'), '1.0', true);
-	*/
 	//wp_enqueue_script('script-acf-maps');
 
 
 	// ===== COMMON ===== //
 	wp_register_script('script-common', get_template_directory_uri() . '/js/script-common.js', array('jquery'), '1.0', true);
 	wp_enqueue_script('script-common');
-	
+
 }
 
 
@@ -78,7 +78,6 @@ if (function_exists('add_image_size')) {
 	add_image_size('panel_bg', 1400, 600, true); // required for flexible content!
 	add_image_size('panel_bg_mobile', 768, 800, true); // required for flexible content!
 }
-
 
 
 // ============================= //
@@ -221,7 +220,7 @@ if (is_admin()) :
 
 		// Disable meta boxes in posts
 		remove_meta_box('postcustom', 'post', 'normal');
-		remove_meta_box('slugdiv', 'post', 'normal');		
+		remove_meta_box('slugdiv', 'post', 'normal');
 		remove_meta_box('commentsdiv', 'post', 'normal');
 		remove_meta_box('trackbacksdiv', 'post', 'normal');
 		remove_meta_box('commentstatusdiv', 'post', 'normal');
@@ -243,12 +242,11 @@ if( function_exists('acf_add_options_page') ) {
 
 // ACF Google Maps API Key
 // https://developers.google.com/maps/documentation/javascript/get-api-key
-/*
-function my_acf_init() {	
+function my_acf_init() {
+	global $google_api_key;
 	acf_update_setting('google_api_key', $google_api_key);
 }
 add_action('acf/init', 'my_acf_init');
-*/
 
 
 // =============================== //

@@ -14,6 +14,13 @@ if( get_row_layout() == 'content_cols' ):
 	$col_num = get_sub_field('col_num');
 	$panel_classes[] = 'fcc-num-' . $col_num;
 
+	// Center & Limit Width
+	if( $col_num == '1' ){
+		$center_lim = get_sub_field('center_lim');
+	} else {
+		$center_lim = false;
+	}
+
 	// Column Split
 	if( $col_num == '2' ){
 		$col_split = get_sub_field('col_split');
@@ -29,7 +36,9 @@ if( get_row_layout() == 'content_cols' ):
 			case '1':
 
 				// One Column
-				echo apply_filters('the_content', get_sub_field('content_1'));
+				if( $center_lim ) echo '<div class="center-lim">';
+					echo apply_filters('the_content', get_sub_field('content_1'));
+				if( $center_lim ) echo '</div>';
 
 				break;
 
@@ -63,7 +72,7 @@ if( get_row_layout() == 'content_cols' ):
 
 				}
 
-				
+
 			echo '<div class="fcc-col fcc-col-' . $col1_class . '">' . apply_filters('the_content', get_sub_field('content_1')) . '</div>';
 				echo '<div class="fcc-col fcc-col-' . $col2_class . ' last">' . apply_filters('the_content', get_sub_field('content_2')) . '</div>';
 
@@ -88,7 +97,7 @@ if( get_row_layout() == 'content_cols' ):
 
 				break;
 
-		}				
+		}
 
 	// Close Panel
 	closeFlexible();
@@ -200,7 +209,7 @@ elseif( get_row_layout() == 'tabs' ):
 	wp_enqueue_script('flexible-common');
 
 	// Open Panel
-	openFlexible('tabs');		
+	openFlexible('tabs');
 
 		// Prepare Content
 		$tabs_headings = '';
@@ -267,12 +276,12 @@ elseif( get_row_layout() == 'accordions' ):
 		endif;
 
 	// Close Panel
-	closeFlexible(); 
+	closeFlexible();
 
 
 
 // ========== Photo Gallery ========== //
-elseif( get_row_layout() == 'gallery' ): 
+elseif( get_row_layout() == 'gallery' ):
 
 	// Master count
 	global $flexible_master_count;
@@ -298,11 +307,11 @@ elseif( get_row_layout() == 'gallery' ):
 			wp_enqueue_script('lightgallery-js');
 			wp_enqueue_script('flexible-lightbox');
 
-    	}        	
+    	}
 
 		// Gallery
 		$images = get_sub_field('gallery');
-		
+
 		if( $type == 'slider' ){
 
 			// === Slider Gallery === //
@@ -396,7 +405,7 @@ elseif( get_row_layout() == 'gallery' ):
 
 
 // ========== Video Gallery ========== //
-elseif( get_row_layout() == 'videos' ):  
+elseif( get_row_layout() == 'videos' ):
 
 	// Open Panel
 	openFlexible('videos');
@@ -415,7 +424,7 @@ elseif( get_row_layout() == 'videos' ):
 
 		if( $layout == 'embed' ){
 
-			// Videos (Embedded)				
+			// Videos (Embedded)
 			if( have_rows('videos') ):
 
 				echo '<ul class="flexible-videos-embed">';
@@ -430,25 +439,25 @@ elseif( get_row_layout() == 'videos' ):
 						$height = 380;
 
 						// Title
-						$video_title = get_sub_field('video_title');	
+						$video_title = get_sub_field('video_title');
 
 						echo '<li><div class="flexible-video-wrap">';
 
-							// Title								
+							// Title
 							if( $video_title ) echo '<h3 class="video-title">' . $video_title . '</h3>';
 
-							// Embed code							
+							// Embed code
 							if( $source == 'youtube' ){
 
-								$embed_code = '<div class="video-iframe-wrap"><iframe class="video-iframe" width="' . $width . '" height="' . $height . '" src="https://www.youtube.com/embed/' . get_sub_field('youtube_id') . '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>';
+								$embed_code = '<div class="video-iframe-wrap"><iframe class="video-iframe" width="' . $width . '" height="' . $height . '" src="//www.youtube.com/embed/' . get_sub_field('youtube_id') . '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>';
 
 							} elseif( $source == 'vimeo' ){
 
 								$embed_code = '<div class="video-iframe-wrap"><iframe class="video-iframe" src="//player.vimeo.com/video/' . get_sub_field('vimeo_id') . '" width="' . $width . '" height="' . $height . '" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>';
 
-							}	
+							}
 
-							echo $embed_code;								
+							echo $embed_code;
 
 						echo '</div></li>';
 
@@ -460,7 +469,7 @@ elseif( get_row_layout() == 'videos' ):
 
 		} elseif($layout == 'thumbs') {
 
-			// Videos (Lightbox)				
+			// Videos (Lightbox)
 			if( have_rows('videos') ):
 
 				echo '<ul class="flexible-videos-thumbs">';
@@ -471,20 +480,20 @@ elseif( get_row_layout() == 'videos' ):
 						$source = get_sub_field('source');
 
 						// Title
-						$video_title = get_sub_field('video_title');	
+						$video_title = get_sub_field('video_title');
 
-						// Source							
+						// Source
 						if( $source == 'youtube' ){
 
 							$youtube_id = get_sub_field('youtube_id');
-							$link = 'https://www.youtube.com/watch?v=' . $youtube_id . '&rel=0';
-							$thumb_img = 'http://img.youtube.com/vi/' . $youtube_id . '/hqdefault.jpg';
+							$link = '//www.youtube.com/watch?v=' . $youtube_id . '&rel=0';
+							$thumb_img = '//img.youtube.com/vi/' . $youtube_id . '/hqdefault.jpg';
 
 						} elseif( $source == 'vimeo' ){
 
 							$vimeo_id = get_sub_field('vimeo_id');
-							$link = 'https://vimeo.com/' . $vimeo_id;
-							$hash = unserialize(file_get_contents('http://vimeo.com/api/v2/video/' . $vimeo_id . '.php'));
+							$link = '//vimeo.com/' . $vimeo_id;
+							$hash = unserialize(file_get_contents('//vimeo.com/api/v2/video/' . $vimeo_id . '.php'));
 							$thumb_img = $hash[0]['thumbnail_medium'];
 
 						}
@@ -507,7 +516,7 @@ elseif( get_row_layout() == 'videos' ):
 
 
 // ========== Quote ========== //
-elseif( get_row_layout() == 'blockquote' ):  
+elseif( get_row_layout() == 'blockquote' ):
 
 	// Open Panel
 	openFlexible('blockquote');
@@ -572,7 +581,7 @@ elseif( get_row_layout() == 'map' ):
 		$bypass_row = $map_width == 'full' ? true : false;
 
 	// Map Options
-	$map_options = array('scrollwheel', 'maptype', 'draggable', 'streetview', 'zoomcontrol');	
+	$map_options = array('scrollwheel', 'maptype', 'draggable', 'streetview', 'zoomcontrol');
 	$map_options_data = '';
 	foreach( $map_options as $option ){
 		$option_value = get_sub_field($option);

@@ -12,7 +12,7 @@ $('.acf-map').each(function(){
 
 	// new_map
 	function new_map( $el ) {
-		
+
 		// var
 		var $markers = $el.find('.marker');
 
@@ -23,7 +23,7 @@ $('.acf-map').each(function(){
 			mapTypeId	: google.maps.MapTypeId.ROADMAP,
 
 			// more styles at snazzymaps.com
-			styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}],	
+			styles: [{"featureType":"water","elementType":"geometry","stylers":[{"color":"#e9e9e9"},{"lightness":17}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":20}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#f5f5f5"},{"lightness":21}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},{"elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},{"elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},{"elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]}],
 		};
 
 
@@ -72,23 +72,23 @@ $('.acf-map').each(function(){
 			args.streetViewControl = false;
 		}
 
-		
-		// create map	        	
-		var map = new google.maps.Map( $el[0], args);	
-		
+
+		// create map
+		var map = new google.maps.Map( $el[0], args);
+
 		// add a markers reference
-		map.markers = [];	
-		
+		map.markers = [];
+
 		// add markers
-		$markers.each(function(){		
-	    	add_marker( $(this), map );		
-		});	
-		
+		$markers.each(function(){
+	    	add_marker( $(this), map );
+		});
+
 		// center map
-		center_map( map );	
-		
+		center_map(map);
+
 		// return
-		return map;	
+		return map;
 	}
 
 
@@ -137,7 +137,7 @@ $('.acf-map').each(function(){
 
 			// show info window when marker is clicked
 			google.maps.event.addListener(marker, 'click', function() {
-				
+
 				// close previous infowindow
 				if( prev_infowindow ){
 		           prev_infowindow.close();
@@ -146,7 +146,7 @@ $('.acf-map').each(function(){
 
 		        // open current infowindow
 				infowindow.open( map, marker );
-			});	
+			});
 
 		}
 
@@ -154,7 +154,7 @@ $('.acf-map').each(function(){
 
 
 	// center_map
-	function center_map( map, resize ) {
+	function center_map(map) {
 
 		// vars
 		var bounds = new google.maps.LatLngBounds();
@@ -168,14 +168,15 @@ $('.acf-map').each(function(){
 
 		});
 
-		// set map center
-		map.setCenter( bounds.getCenter() );
-		
-		// on init, set zoom
-		if (typeof(resize)==='undefined') resize = false; // ie fix
-		if( resize == false ){
-			map.setZoom( zoomLevel );
-		}		
+		// only 1 marker?
+		if( map.markers.length == 1 ){
+			// set center of map
+		    map.setCenter( bounds.getCenter() );
+		    map.setZoom( 16 );
+		} else {
+			// fit to bounds
+			map.fitBounds( bounds );
+		}
 
 	}
 
@@ -188,7 +189,7 @@ $('.acf-map').each(function(){
 		resizeTimer = setTimeout(function() {
 
 		google.maps.event.trigger(map,'resize');
-		center_map( map, true );
+		center_map(map);
 
 		}, 250);
 
@@ -198,7 +199,7 @@ $('.acf-map').each(function(){
 	// create new map
 	var map = new_map( $(this) );
 
-	
+
 	// remove overlay
 	$('.flexible-map-overlay').click(function(){
 		$(this).fadeOut(500);
