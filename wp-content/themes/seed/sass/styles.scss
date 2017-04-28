@@ -1,0 +1,696 @@
+// ========== Import ========== //
+@import 'colors';
+@import '../fonts/icons-reference';
+@import 'seed';
+@import 'nav';
+@import 'flexible';
+
+
+// ========== HTML ========== //
+.background-color{background-color:$white}
+
+html,
+body{@extend .background-color;}
+
+
+// ========== Typography ========== //
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,400italic,700,900);
+body,input,textarea,select,button{
+	font-family:'Roboto',Arial,Helvetica,sans-serif;
+}
+
+h1{font-size:38px;font-weight:300;color:$offblack}
+h2{font-size:30px;font-weight:300;color:$offblack}
+h3{font-size:26px;font-weight:700;color:$offblack}
+h4{font-size:20px;font-weight:700;color:$offblack}
+h5{font-size:18px;font-weight:300;color:$offblack}
+h6{font-size:16px;font-weight:700;color:$offblack}
+
+h1{
+	margin:0 0 20px 0;
+	line-height:1;
+}
+h2,h3,h4,h5,h6{
+	margin:0 0 15px 0;
+	line-height:1.25;
+}
+
+p+h2, p+h3, p+h4, p+h5, p+h6,
+ul+h2, ul+h3, ul+h4, ul+h5, ul+h6,
+ol+h2, ol+h3, ol+h4, ol+h5, ol+h6{margin-top:40px}
+
+p{margin:0 0 20px 0}
+p,li,table{font-size:16px;line-height:1.55;font-weight:400;color:#444}
+
+small,.small{font-size:80%}
+
+p.large,
+ul.large li,
+ol.large li{font-size:18px}
+
+.thin,.light{font-weight:300}
+.normal{font-weight:400}
+.bold,.strong,b,strong{font-weight:700}
+
+a{
+	&:link,
+	&:visited{color:$link-color;font-weight:700;text-decoration:none;outline:0}
+	&:hover,
+	&:focus{color:$link-color-hover;text-decoration:none;}
+}
+
+$line-color: rgba(0,0,0,.08);
+hr{background:$line-color}
+
+
+// White Text
+.white-text{
+	h1,h2,h3,h4,h5,h6,p,li{color:$white}
+
+	blockquote{
+		&::before,
+		&,p,cite{color:$white}
+	}
+
+	a{
+		color:$white;
+
+		&:hover{color:rgba(255,255,255,.6)}
+	}
+
+	hr{background:rgba(255,255,255,.2)}
+}
+
+
+// TinyMCE Custom Formats
+.no-bottom-spacing{margin-bottom:0}
+.less-bottom-spacing{margin-bottom:5px}
+.more-bottom-spacing{margin-bottom:30px}
+
+
+// =========================================== //
+// ============= FORMS & BUTTONS ============= //
+// =========================================== //
+
+// Labels
+$label-size: 16px;
+$label-size-small: 14px;
+$label-color: $link-color-hover;
+$label-color-choices: $offblack;
+$label-color-md: #999;
+$label-color-md-focus: $label-color;
+
+
+// ========== Buttons ========== //
+$button-side-margin: 6px;
+
+.button,a.button,button,
+input[type='submit'],
+input[type='reset'],
+input[type='button']{
+	@include transition;
+	cursor:pointer;
+	display:inline-block;
+	margin:0 $button-side-margin 10px 0;
+	padding:12px;
+
+	border-radius:0;
+	border:1px solid rgba(0,0,0,.06);
+	background:#f4f4f4;
+	box-shadow:none;
+
+	font-size:16px;font-weight:700;color:#333;line-height:1;
+	text-decoration:none;
+
+	&:hover{
+		background:#444;
+		color:$white;
+	}
+	&:focus{outline:none}
+}
+
+// Margin adjustments for buttons
+a.button[style*='text-align:center'],
+a.button[style*='text-align:center'],
+p[style*='text-align:center'] a.button,
+p[style*='text-align:center'] a.button{margin-left:$button-side-margin}
+
+	// Shortcodes and Mozilla fixes
+	button::-moz-focus-inner,
+	input::-moz-focus-inner{border:0 none;padding:0}
+
+
+
+// ========== Inputs ========== //
+input:not([type='radio']):not([type='checkbox']):not([type='submit']):not([type='button']):not([type='image']):not([type='file']),
+textarea,
+select{
+	transition:.4s ease;
+	position:relative;
+	outline:none;
+	display:inline-block;
+	width:100%;
+	margin:0;
+	padding:12px 0;
+
+	border-radius:0;
+	border:0;
+	box-shadow: 0 1px 0 rgba(0,0,0,.06);
+
+	background:none;
+
+	font-size:16px;line-height:normal;font-weight:400;color:$offblack;
+
+	&:focus{
+		outline:none;
+		box-shadow: 0 2px 0 $label-color;
+	}
+}
+
+// Placeholders
+.form-placeholder{color:#aaa}
+	::input-placeholder{@extend .form-placeholder;}
+	::-webkit-input-placeholder{@extend .form-placeholder;}
+	:-moz-placeholder{@extend .form-placeholder;}
+	::-moz-placeholder{@extend .form-placeholder;}
+
+// Checkbox
+input[type='checkbox']{display:inline}
+
+// Textarea
+.textarea,textarea{
+	vertical-align:top;
+	line-height:1.55;
+}
+
+.label,label,legend{
+	transition:.4s ease;
+	display:block;
+	height:$label-size;
+	margin:0 0 10px;
+	padding:0;
+
+	font-size:$label-size;font-weight:400;color:$label-color;
+	line-height:$label-size;
+}
+
+
+// ========== GRAVITY FORMS ========== //
+.gform_wrapper{
+	max-width:100%;
+	margin:0 0 20px;
+
+	// Required, error, validation
+	.gfield_required{padding-left:3px}
+	.gfield_required,
+	.gfield_error .gfield_label,
+	.validation_message{color:$required-red}
+
+	// Error boxes around fields
+	.gfield_error{
+		padding:0;
+		border:0;
+		background:none;
+
+		// validation message
+		.validation_message{padding:10px 0 0;margin:0}
+	}
+
+	// Validation error box at top
+	div.validation_error{
+		position:relative;
+		display:block;
+		margin:0 0 20px;
+		padding:30px 20px 30px 80px;
+
+		border:0;
+		background:$required-red;
+
+		font-size:18px;line-height:1.5;font-weight:700;color:$white;
+		text-align:left;
+
+		&::before{
+			@include icon;@include icon-warning;
+			position:absolute;
+			top:50%;left:20px;
+			margin-top:-17px;
+
+			font-size:34px;
+		}
+
+		@include below(480){
+			padding:70px 20px 20px;
+			text-align:center;
+			&::before{top:20px;left:50%;margin-left:-17px;margin-top:0}
+		}
+	}
+
+	// Form Fields
+	.gform_fields{
+		margin:0 0 20px;
+		padding:0;
+		font-size:0; // Field spacing fix
+	}
+
+	// Footer
+	.gform_footer{
+		margin-top:0;padding-top:15px;
+		p{display:none;margin:0;padding:0}
+	}
+
+	// From Heading
+	.gform_heading{display:none}
+
+	// Fields
+	.gfield{
+		position:relative;
+		display:inline-block;
+		width:100%;max-width:100%;
+		margin-bottom:25px;
+
+		// Error: Contains Required
+		&.gfield_error.gfield_contains_required{
+			padding:12px 16px 12px 12px;
+
+			.ginput_container{margin-top:0}
+
+			// margin-top fix for label clone
+			&.empty:not(.focused) label.gfield_label.clone{margin-top:0}
+		}
+	}
+
+
+	// Section Break
+	.gfield.gsection{
+		border-bottom:3px solid rgba(0,0,0,.1);
+	}
+
+	// Radios & Checkboxes
+	.gfield_radio label,
+	.gfield_checkbox label,
+	input[type='checkbox']:checked+label,
+	input[type='radio']:checked+label{
+		display:inline-block;
+		margin:0 0 0 6px;
+		padding:2px 0 0;
+		font-size:16px;font-weight:400;color:$label-color-choices;
+	}
+
+	.gfield_radio,
+	.gfield_checkbox{
+		@include no-list;
+		margin:0 0 20px;
+	}
+
+	// File Uploads
+	.ginput_container input[type='button']{margin:0}
+	.gform_drop_area{margin:0}
+
+
+	// Input Container
+	.ginput_container{
+		position:relative;
+		margin:0;
+
+		span.gfield_required{display:inline}
+
+		&.ginput_container_fileupload{float:left;width:100%;margin:0 0 20px}
+	}
+
+
+	// Labels
+	.gfield_label{
+
+		// Original
+		&.original{
+			transition:none;
+			opacity:0;
+			height:$label-size-small;
+			margin-bottom:0;
+
+			font-size:$label-size-small;line-height:$label-size-small;
+		}
+
+		// Cloned
+		&.clone{
+			cursor:text;
+			position:absolute;
+			top:10px;
+			margin-bottom:0;
+			color:$label-color-md;
+		}
+	}
+			// Clone on focus + when field full
+			.gfield.full,
+			.gfield.focused{
+				.gfield_label.clone{
+					top:0;
+					margin-top:-($label-size);
+					font-size:$label-size-small;
+				}
+			}
+
+			// Clone on focus
+			.gfield.focused .gfield_label.clone{color:$label-color-md-focus}
+
+
+	// Disable br's on checkbox labels
+	.gfield_checkbox br{display:none}
+
+
+	// Column widths
+	.gf_left_half{
+		width:calc(50% - 10px);
+		margin-right:20px;
+	}
+	.gf_right_half{
+		width:calc(50% - 10px);
+	}
+	.gf_left_third{
+		width:calc(33.3333% - 13px);
+		margin-right:20px;
+	}
+	.gf_middle_third{
+		width:calc(33.3333% - 13px);
+		margin-right:20px;
+	}
+	.gf_right_third{
+		width:calc(33.3333% - 14px);
+	}
+
+}
+
+// Confirmation Message
+.gform_confirmation_wrapper .gform_confirmation_message{
+	position:relative;
+	display:block;
+	margin:0 0 20px;
+	padding:30px 20px 30px 80px;
+
+	background:#5CB660;
+
+	font-size:18px;line-height:1.5;font-weight:700;color:$white;
+
+	&::before{
+		@include icon; @include icon-email-open;
+		position:absolute;
+		top:50%;left:20px;
+		margin-top:-17px;
+		font-size:34px;
+	}
+
+	@include below(480){
+		padding:70px 20px 20px;
+		text-align:center;
+		&::before{top:20px;left:50%;margin-left:-17px;margin-top:0}
+	}
+}
+
+
+
+// ========== SEARCH FORM ========== //
+$search-size: 50px;
+
+.search-form{
+	position:relative;
+	@include clear;
+	margin:0 0 40px 0;
+	padding:0;
+
+	// Search form text
+	.search-text{
+		width:100%;max-width:100%;
+		height:$search-size;
+		padding-right:$search-size;
+		padding-left:12px;
+
+		border:1px solid rgba(0,0,0,.06);
+		box-shadow:none;
+
+		&:focus{
+			border-color:$label-color;
+		}
+	}
+
+	// Search form mag button
+	.search-mag{
+		position:absolute;z-index:2;
+		top:0;right:0;
+		width:$search-size;height:100%;
+		margin:0;padding:0;
+
+		border:0;
+		background:none;
+		box-shadow:none;
+
+		font-size:18px;color:rgba(0,0,0,.3);
+
+		&::after{
+			@include icon; @include icon-mag;
+			width:$search-size;height:$search-size;line-height:$search-size;
+			text-align:center;
+		}
+		&:hover{color:$label-color}
+	}
+}
+
+
+// =========================================== //
+// ============== MAIN THEME DIVS ============ //
+// =========================================== //
+
+section{
+	float:left;width:100%;
+
+	&.section-padding{
+		padding:70px 0 60px;
+
+		@include below(1024){padding:60px 0 50px}
+		@include below(480){padding:50px 0 40px}
+	}
+}
+
+
+// ========== #FOOTER ========== //
+#footer{
+	float:left;width:100%;
+	padding:20px 0;
+}
+
+// Footer Copy
+$footer-copy:#bbb;
+#footer-copy{
+	margin:0;
+
+	font-size:13px;color:$footer-copy;
+
+	.divider{color:rgba($footer-copy, .5)}
+
+	.desktop-only{display:inline}
+	.mobile-only{display:none}
+
+	a{
+		color:$footer-copy;
+
+		&:hover{color:$link-color-hover}
+	}
+
+	@include below(768){
+		.desktop-only{display:none}
+		.mobile-only{display:inline}
+	}
+}
+
+
+
+// ========================================= //
+// ================ SECTION ================ //
+// ========================================= //
+
+
+
+
+// ======================================= //
+// ================= BLOG ================ //
+// ======================================= //
+
+// ============ LOOPS ============ //
+.loop-wrap{
+	@include clear;
+	margin:0 0 40px;
+
+	article{
+		float:left;width:100%;
+	}
+}
+
+.loop-post,
+.loop-page{
+	margin-bottom:50px;
+	padding-bottom:50px;
+
+	border-bottom:1px solid $line-color;
+
+	&:last-child{
+		margin-bottom:0;
+		padding-bottom:0;
+		border-bottom:0;
+	}
+}
+
+
+// ============ POSTS ============ //
+.post-title{margin-bottom:0}
+.post-details{
+	@include no-list;
+	@include clear;padding:15px 0;
+
+	li{
+		float:left;margin:0 20px 8px 0;
+		font-size:90%;color:#aaa;
+
+		a{font-weight:300}
+
+		&::before{@include icon;padding-right:10px;}
+		&.post-details-date::before{@include icon-calendar;}
+		&.post-details-cats::before{@include icon-folder;}
+		&.post-details-tags::before{@include icon-tags;}
+	}
+}
+.post-thumbnail{@extend .alignright; @extend.shadow;margin-top:0}
+
+
+// =========== PAGINATION =========== //
+#pagination{
+	@include clear;
+	padding:20px 0 30px;
+
+	ul.page-numbers{
+		list-style-type:none;
+		margin:0 auto;padding:0;
+		color:#555;
+		text-align:center;
+
+		li{display:inline}
+
+		.current,
+		a.page-numbers{
+			display:inline-block;
+			margin:0 1px 8px;padding:14px;
+
+			border:1px solid #ddd;
+			background:rgba(0,0,0,.03);
+
+			font-size:15px;line-height:1;color:#555;font-weight:400;
+
+			&:hover{
+				border-color:#222;
+				background:#333;
+				color:#eee;
+				text-decoration:none;
+			}
+			&.more{margin-left:0;margin-right:0;border:0;background:none}
+		}
+		.current,
+		.current:hover{
+			border-color:#222;
+			background:#333;
+			color:#eee;
+			text-decoration:none;
+		}
+
+		.prev::before{content:'\2039';padding-right:6px}
+		.next::after{content:'\203A';padding-left:6px}
+		.dots{
+			margin-left:10px;margin-right:10px;
+			border:0;background:none;color:#999;
+		}
+	}
+}
+
+
+// =========== PREV/NEXT =========== //
+#prevnext{
+	@include clear;
+	width:100%;
+	margin:50px 0 30px;
+	padding:0;
+
+	li{
+		list-style-type:none;
+		float:left;width:100%;
+
+		a{
+			position:relative;
+			display:block;
+			padding:15px;
+
+			font-size:16px;line-height:1.2;
+
+			border:1px solid $line-color;
+			background:#fcfcfc;
+
+			small{font-size:14px;font-weight:300;color:#aaa}
+
+			span{
+				position:absolute;
+				display:block;
+				top:0;width:30px;
+				height:100%;
+
+				&::before{
+					@include icon;@include transition;
+					position:absolute;
+					top:50%;left:0;
+					width:100%;
+					margin-top:-6px;
+
+					font-size:12px;color:rgba(0,0,0,.2);
+					text-align:center;
+				}
+			}
+
+			&:hover{
+				background:$white;
+				span::before{color:rgba(0,0,0,.4)}
+			}
+		}
+
+		&:first-child a{
+			padding-left:35px;
+
+			span{left:0; &::before{@include icon-arrow-medium-left;} }
+		}
+		&:last-child a{
+			text-align:right;
+			padding-right:35px;
+
+			border-top:0;
+
+			span{right:0; &::before{@include icon-arrow-medium-right;} }
+		}
+	}
+}
+
+
+// =========== SIDEBAR =========== //
+.sidebar-list{
+	@include clear;
+	padding:0 0 30px 0;
+
+	li{
+		list-style-type:none;padding:0;
+		border-top:1px solid $line-color;
+
+		a{display:block;font-size:15px;padding:8px 0}
+		li a{font-size:15px}
+		li li a{padding-left:18px;margin:0;font-size:14px}
+		li ul{@include clear;margin-bottom:20px}
+		li li{border-top:0;margin:0 0 0 28px;font-size:14px}
+		li li a{padding:4px 0}
+	}
+
+	ul{margin:-8px 0 12px 20px;padding:0}
+}
+
+#tag-cloud{@include clear;padding:0 0 20px 0}

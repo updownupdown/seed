@@ -41,7 +41,7 @@ function only_show_option_if_wp_super_cache_is_active() {
             $wp_admin_bar->add_menu($args);
         }
         add_action('wp_before_admin_bar_render', 'clear_all_cached_files_wpsupercache', 999);
-    } 
+    }
 }
 add_action('admin_init', 'only_show_option_if_wp_super_cache_is_active');
 
@@ -56,7 +56,12 @@ add_theme_support( 'post-thumbnails', array( 'post' ) );
 
 
 // Add Editor Style
-add_editor_style( 'css/editor-style.less' );
+add_editor_style( get_stylesheet_directory_uri() . '/styles.css' );
+
+
+// Remove emoji code from header
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
 
 
 // Disable automatic updates email notification
@@ -75,7 +80,7 @@ function my_restrict_manage_posts() {
 
     if( $typenow != "page" && $typenow != "post" ){
         // get post type
-        $post_type = get_query_var('post_type'); 
+        $post_type = get_query_var('post_type');
 
         // get taxonomy associated with current post type
         $taxonomies = get_object_taxonomies($post_type);
@@ -88,7 +93,7 @@ function my_restrict_manage_posts() {
                 $terms = get_terms($tax_slug);
                 echo "<select name='$tax_slug' id='$tax_slug' class='postform'>";
                 echo "<option value=''>Show All $tax_name</option>";
-                foreach ($terms as $term) { 
+                foreach ($terms as $term) {
                     $label = (isset($_GET[$tax_slug])) ? $_GET[$tax_slug] : '';
                     echo '<option value='. $term->slug, $label == $term->slug ? ' selected="selected"' : '','>' . $term->name .' (' . $term->count .')</option>';
                 }

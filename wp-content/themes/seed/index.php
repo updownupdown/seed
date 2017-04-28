@@ -5,7 +5,7 @@
 <section class="section-padding">
 	<div class="row">
 
-		<div class="col span_8 col-margin">
+		<div class="col span-8 col-margin">
 
 			<h1>Blog</h1>
 
@@ -58,7 +58,7 @@
 			?>
 		</div>
 
-		<div class="col span_4">
+		<div class="col span-4">
 
 			<?php get_sidebar('blog'); ?>
 

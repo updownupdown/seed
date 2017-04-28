@@ -1,0 +1,5 @@
+/.htaccess
+/wp-config.php
+/wp-config-sample.php
+/wp-content/themes/twenty*
+**/node_modules*

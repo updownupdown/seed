@@ -1,6 +1,6 @@
 <footer id="footer">
 	<div class="row">
-		<div class="col span_12">
+		<div class="col span-12">
 
 			<p id="footer-copy">&copy;<?php echo date('Y'); ?> Seed<?php if( is_page_template('page-home.php') ) echo '<span class="desktop-only">&nbsp;&nbsp;&nbsp;<span class="divider">|</span>&nbsp;&nbsp;&nbsp;</span><br class="mobile-only" /><a href="http://www.echosims.com" target="_blank">Website crafted by echosims</a>'; ?></p>
 			

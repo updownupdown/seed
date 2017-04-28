@@ -15,6 +15,8 @@ if (function_exists('is_multisite') && is_multisite()) {
 		_relevanssi_uninstall();
 	}
 	switch_to_blog($old_blogid);
+
+	delete_site_option('relevanssi_api_key');
 }
 else {
 	_relevanssi_uninstall();
@@ -50,7 +52,7 @@ function _relevanssi_uninstall() {
 	delete_option('relevanssi_highlight_docs_external');
 	delete_option('relevanssi_highlight_docs');
 	delete_option('relevanssi_highlight');
-	delete_option('relevanssi_hilite_title'); 	//added by OdditY 
+	delete_option('relevanssi_hilite_title'); 	//added by OdditY
 	delete_option('relevanssi_implicit_operator');
 	delete_option('relevanssi_index');
 	delete_option('relevanssi_index_author');
@@ -101,11 +103,11 @@ function _relevanssi_uninstall() {
 	delete_option('relevanssi_show_matches_txt');
 	delete_option('relevanssi_tag_boost');
 	delete_option('relevanssi_include_cats');
-	delete_option('relevanssi_include_tags'); 	//added by OdditY	
+	delete_option('relevanssi_include_tags'); 	//added by OdditY
 	delete_option('relevanssi_custom_taxonomies');
 	delete_option('relevanssi_taxonomies_to_index');
 
 	relevanssi_clear_database_tables();
 }
-	
+
 ?>

@@ -3,11 +3,11 @@
 /**********************/
 
 PROJECT SPECIFIC
-[ ]  
-[ ]  
-[ ]  
-[ ]  
-[ ]  
+[ ]
+[ ]
+[ ]
+[ ]
+[ ]
 
 
 CODE
@@ -20,6 +20,7 @@ CODE
 [ ]  Responsive design testing
 [ ]  Test search functionality
 [ ]  GTMetrix Test (dev)
+[ ]  Update nav and sticky nav heights in script-common.js (?)
 
 
 SEO

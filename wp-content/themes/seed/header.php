@@ -21,14 +21,14 @@
 	<!-- <meta name="theme-color" content="#db5945"> -->
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	
+
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 	<link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href="<?php bloginfo('atom_url'); ?>" />
 	<!-- <link rel="pingback" href="< ?php bloginfo('pingback_url'); ?>" /> -->
 
 	<!--[if lt IE 9]>
 		<script src="<?php bloginfo('template_url'); ?>/js/html5shiv.min.js"></script>
-	<![endif]-->	
+	<![endif]-->
 
 	<?php wp_head(); ?>
 
@@ -41,72 +41,53 @@
 	?>
 
 </head>
+
 <body <?php body_class(); ?>>
 
-
-	<header id="sticky">
-
-		<div id="sticky-top" class="sticky-show">
-
-			<ul id="sticky-sec-menu">
-				<li><a id="ssm-phone" href="tel:5551241234">555-123-1235</a></li>
-				<li><a id="ssm-email" href="<?php bloginfo('url'); ?>/contact/">Email Us</a></li>
-			</ul>
-
-			<a id="sticky-search-toggle" class="sticky-toggle" href="javascript:void(0);"></a>
-			<a id="sticky-hamburger" class="sticky-toggle" href="javascript:void(0);"><div><span></span><span></span><span></span><span></span></div></a>
-
-		</div>
-
-		<div id="sticky-slideout">
-
-			<div id="sticky-search">
-				<?php get_search_form(); ?>
-			</div>
-
-			<?php
-			// Sticky nav
-			wp_nav_menu( array(
-				'menu' => 'Main Menu',
-				'menu_id' => 'sticky-main-menu',
-				'menu_class' => 'menu',
-				'container' => false,
-				'items_wrap' => '<ul id="%1$s" class="%2$s"><li><a href="' . get_bloginfo('url') . '">Home</a></li>%3$s</ul>'
-			));
-			?>
-
-		</div>
-
-		<div id="sticky-mask" class="sticky-toggle"></div>
-		
-	</header>
-
-
 	<header id="nav">
-		<div class="row">	
-			<div class="col span_12">
+		<div class="row">
+			<div class="col span-12">
 
 				<div id="nav-inner">
 
-					<?php /*
-					<a id="nav-logo" href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('template_url'); ?>/images/image.svg" onerror="this.src='<?php bloginfo('template_url'); ?>/images/image.png';this.onerror=null;" width="" height="" alt="" /></a>
-					*/ ?>
+					<a id="nav-logo" href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('template_url'); ?>/images/logo.svg" onerror="this.src='<?php bloginfo('template_url'); ?>/images/logo.png';this.onerror=null;" width="130" height="80" alt="logo" /></a>
 
-					<?php
-					// Main nav
-					wp_nav_menu( array(
-						'menu' => 'Main Menu',
-						'menu_id' => 'main-menu',
-						'menu_class' => 'menu',
-						'container' => false
-					));
-					?>
+					<ul id="mobile-nav-sec-menu" class="mobile-nav">
+						<li><a id="ssm-phone" href="tel:5551241234"><span>555-123-1235</span></a></li>
+						<li><a id="ssm-email" href="<?php bloginfo('url'); ?>/contact/"><span>Email Us</span></a></li>
+					</ul>
+
+					<div id="nav-wrap">
+
+						<a id="mobile-nav-close" class="mobile-nav mobile-nav-toggle" href="javascript:void(0);">Close</a>
+
+						<div id="mobile-nav-search" class="mobile-nav">
+							<?php get_search_form(); ?>
+						</div>
+
+						<?php
+						// Main nav
+						wp_nav_menu( array(
+							'menu' => 'Main Menu',
+							'menu_id' => 'main-menu',
+							'menu_class' => 'menu',
+							'container' => false,
+							'items_wrap' => '<ul id="%1$s" class="%2$s"><li class="mobile-nav"><a href="' . get_bloginfo('url') . '">Home</a></li>%3$s</ul>',
+						));
+						?>
+
+					</div>
+
+					<a id="mobile-nav-hamburger" class="mobile-nav mobile-nav-toggle" href="javascript:void(0);"><div><span></span><span></span><span></span><span></span></div></a>
+
+					<a id="mobile-nav-search-toggle" class="mobile-nav mobile-nav-toggle" href="javascript:void(0);"></a>
+
+					<div id="mobile-nav-mask" class="mobile-nav mobile-nav-toggle"></div>
 
 				</div>
-			
+
 			</div>
 		</div>
 	</header>
-
 
 	<div id="nav-spacer"></div>

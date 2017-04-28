@@ -102,7 +102,7 @@ class relevanssi_wp_auto_update
      */
     public function getRemote_version()
     {
-        $api_key = get_option('relevanssi_api_key');
+        $api_key = get_site_option('relevanssi_api_key');
         $request = wp_remote_post($this->update_path, array('body' => array('api_key' => $api_key, 'action' => 'version')));
         if (!is_wp_error($request) || wp_remote_retrieve_response_code($request) === 200) {
             return $request['body'];
@@ -116,7 +116,7 @@ class relevanssi_wp_auto_update
      */
     public function getRemote_information()
     {
-        $api_key = get_option('relevanssi_api_key');
+        $api_key = get_site_option('relevanssi_api_key');
         $request = wp_remote_post($this->update_path, array('body' => array('api_key' => $api_key, 'action' => 'info')));
         if (!is_wp_error($request) || wp_remote_retrieve_response_code($request) === 200) {
             return unserialize($request['body']);
@@ -130,7 +130,7 @@ class relevanssi_wp_auto_update
      */
     public function getRemote_license()
     {
-        $api_key = get_option('relevanssi_api_key');
+        $api_key = get_site_option('relevanssi_api_key');
         $request = wp_remote_post($this->update_path, array('body' => array('api_key' => $api_key, 'action' => 'license')));
         if (!is_wp_error($request) || wp_remote_retrieve_response_code($request) === 200) {
             return $request['body'];

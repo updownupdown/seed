@@ -4,7 +4,7 @@
 
 <section class="section-padding">
 	<div class="row">
-		<div class="col span_8 col-margin">	
+		<div class="col span-8 col-margin">	
 
 			<?php 
 			if ( have_posts() ) : while ( have_posts() ) : the_post();
@@ -51,7 +51,7 @@
 			<?php endif; ?>		
 
 		</div>		
-		<div class="col span_4">
+		<div class="col span-4">
 
 			<?php get_sidebar('blog'); ?>
 			

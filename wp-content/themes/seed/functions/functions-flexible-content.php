@@ -5,13 +5,13 @@
 
 /*
  * Required Field Names
- * 
+ *
  * top_spacing, bottom_spacing (default, less, none)
  * bg_type (none, white/palegrey/green/etc., image)
  * bg_image
  * bg_overlay (none, black40/black60/etc.)
  * white_text (bool)
- * 
+ *
  */
 
 $flexible_master_count = 0;
@@ -29,7 +29,7 @@ function flexibleContent($width = 'full'){
 	$flexible_width = $width;
 
 	// Include flexible content template
-	include(locate_template('flexible-content.php'));
+	include(locate_template('flexible/flexible-layouts.php'));
 
 }
 
@@ -54,7 +54,7 @@ function defaultPanelClasses(){
 	if( $flexible_width != 'column' && $white_text ) $panel_classes[] = 'white-text';
 
 	// Background Type
-	$bg_type = get_sub_field('bg_type');			
+	$bg_type = get_sub_field('bg_type');
 	if($bg_type){
 		$panel_classes[] = 'fbg-type-' . $bg_type;
 
@@ -102,7 +102,7 @@ function openFlexible($label = 'default', $panel_classes_extra = '', $bypass_row
 
 	// Panel Classes
 	$panel_classes_default = defaultPanelClasses();
-	
+
 	if( is_array($panel_classes_extra) ){
 		$panel_classes_all = array_merge($panel_classes_default, $panel_classes_extra);
 		$panel_classes_clean = join(' ', $panel_classes_all);
@@ -128,7 +128,7 @@ function openFlexible($label = 'default', $panel_classes_extra = '', $bypass_row
 
 			// Include rows?
 			global $flexible_width;
-			if($flexible_width == 'full' && $bypass_row == false ) echo '<div class="row"><div class="col span_12">';
+			if($flexible_width == 'full' && $bypass_row == false ) echo '<div class="row"><div class="col span-12">';
 
 }
 

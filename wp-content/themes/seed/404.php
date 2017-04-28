@@ -4,7 +4,7 @@
 
 <section class="section-padding">
 	<div class="row">
-		<div class="col span_12">
+		<div class="col span-12">
 
 			<h1 class="light less-bottom-padding"><strong>404 Error</strong><br />
 			<small>Page Not Found</small></h1>
