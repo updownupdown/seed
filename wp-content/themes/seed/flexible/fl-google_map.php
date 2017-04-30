@@ -1,6 +1,6 @@
 <?php
 // Enqueue Scripts
-wp_enqueue_script('script-acf-maps');
+wp_enqueue_script('acf-maps');
 
 // Fields
 $map_height = get_sub_field('map_height');

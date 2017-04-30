@@ -1,13 +1,9 @@
-[ ]  Check use of '.clear()', especially on flexible panels
-[ ]  debug sticky nav jumping on hover
-[ ]  better way to serve scaled images and backgrounds
+[ ]  test actual git workflow
 
 ==========================
 NOT URGENT
 
-[ ]  Improve default icon font selection
-[ ]  Look into SVG icons again
+[ ]  debug sticky nav jumping on hover
+[ ]  better way to serve scaled images and backgrounds
 [ ]  on WebSavers, remove iThemes Security, and replace with direct tweaks to theme instead
    - /wordpress/ login URL? ask host support if useful.
-   - ??
-[ ]  On git, switch to less-autocompile when using git exclusively - see: http://michaelsoriano.com/working-with-less-atom-and-chrome-developer-tools/

@@ -10,11 +10,15 @@ openFlexible('gallery');
     $gallery = get_sub_field('gallery');
 
     // Enqueue scripts
-    if( $type == 'lightbox') {
+    if( $type == 'slider' ){
+
+      wp_enqueue_script('theme-flexslider');
+
+    } elseif( $type == 'lightbox') {
 
         // Lightbox scripts and styles
         wp_enqueue_style('lightgallery-css');
-        wp_enqueue_script('lightgallery-js');
+        wp_enqueue_script('theme-lightgallery');
 
     }
 

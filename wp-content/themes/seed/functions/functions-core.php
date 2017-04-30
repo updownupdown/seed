@@ -3,6 +3,18 @@
 // ========= CORE FUNCTIONS ========= //
 // ================================== //
 
+
+// SVG Icons
+function svgi($icon){
+  return '<svg class="svgi svgi-' . $icon . '"><use xlink:href="' . get_bloginfo('template_url') . '/svg/icons.svg#' . $icon . '"></use></svg>';
+}
+
+function e_svgi($icon){
+  echo svgi($icon);
+}
+
+
+
 // Clean up phone numbers for links
 function cleanPhoneNum($phone){
   $phone = preg_replace('/[-|(|)| |+]/', '', $phone);
@@ -11,6 +23,7 @@ function cleanPhoneNum($phone){
 
   return $phone;
 }
+
 
 
 // Yoast SEO - Add title tag support (needed!)
@@ -56,7 +69,8 @@ add_theme_support( 'post-thumbnails', array( 'post' ) );
 
 
 // Add Editor Style
-add_editor_style( get_stylesheet_directory_uri() . '/styles.css' );
+add_editor_style( get_stylesheet_directory_uri() . '/build/css/styles.min.css' );
+add_editor_style( get_stylesheet_directory_uri() . '/build/css/editor.min.css' );
 
 
 // Remove emoji code from header

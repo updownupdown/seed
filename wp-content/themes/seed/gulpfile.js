@@ -1,3 +1,5 @@
+console.time("Loading plugins"); //start measuring
+
 // Required
 var gulp          = require('gulp'),
     autoprefixer  = require('gulp-autoprefixer'),
@@ -5,6 +7,7 @@ var gulp          = require('gulp'),
     csso          = require('gulp-csso'),
     jshint        = require('gulp-jshint'),
     livereload    = require('gulp-livereload'),
+    path          = require('path'),
     rename        = require('gulp-rename'),
     sass          = require('gulp-sass'),
     sassLint      = require('gulp-sass-lint'),
@@ -12,7 +15,6 @@ var gulp          = require('gulp'),
     stylish       = require('jshint-stylish'),
     uglify        = require('gulp-uglify'),
     watch         = require('gulp-watch');
-
 
 
 // Sass - lint
@@ -50,7 +52,10 @@ gulp.task('sass-lint', function(){
         'no-vendor-prefixes': 0,
         'mixins-before-declarations': 0,
         'hex-length': 0,
-        'no-important': 0
+        'no-css-comments': 0,
+        'no-important': 0,
+        'variable-name-format': 0,
+        'quotes': 0
       }
     }))
     .pipe(sassLint.format())
@@ -60,12 +65,14 @@ gulp.task('sass-lint', function(){
 
 // Sass - uglify + sourcemap + livereload
 gulp.task('sass-uglify', function(){
-  return gulp.src('sass/styles.scss')
+  return gulp.src(['sass/styles.scss', 'sass/editor.scss'])
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer("last 5 versions", "> 5%", "ie 11", "ie 10", "android", "Edge", "Safari", "iOS"))
     .pipe(csso())
-    .pipe(rename('styles.min.css'))
+    .pipe(rename({
+      suffix: ".min"
+    }))
     .pipe(sourcemaps.write('maps'))
     .pipe(gulp.dest('build/css'))
     .pipe(livereload());
@@ -75,7 +82,6 @@ gulp.task('sass-uglify', function(){
 // JS - Global
 gulp.task('js-global', function() {
   return gulp.src([
-      'js/flexible.js',
       'js/nav.js',
       'js/global.js'
     ])
@@ -90,10 +96,7 @@ gulp.task('js-global', function() {
 
 // JS - Other
 gulp.task('js-other', function() {
-  return gulp.src([
-    'js/gravity-forms.js',
-    'js/acf-maps.js'
-    ])
+  return gulp.src(['js/*.js', '!js/nav.js', '!js/global.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(uglify())
@@ -104,21 +107,40 @@ gulp.task('js-other', function() {
 });
 
 
+// SVG
+gulp.task('svg', function () {
+
+  var svgstore			= require('gulp-svgstore'),
+      svgmin			  = require('gulp-svgmin');
+
+  return gulp
+      .src('svg/icons/*.svg')
+      .pipe(svgmin(function (file) {
+          var prefix = path.basename(file.relative, path.extname(file.relative));
+          return {
+              plugins: [{
+                  cleanupIDs: {
+                      prefix: prefix + '-',
+                      minify: true
+                  }
+              }]
+          }
+      }))
+      .pipe(svgstore())
+      .pipe(gulp.dest('svg'));
+});
+
+
 // Watch
-var watchedFiles = ['sass/*.scss', 'js/*.js'];
-var runTasks = ['sass-lint', 'sass-uglify', 'js-global', 'js-other']
+var watchedFiles = ['**/*.scss', 'js/*.js'];
+var runTasks = ['sass-lint', 'sass-uglify', 'js-global', 'js-other'];
 
 gulp.task('watch', function () {
-
-    livereload.listen();
-      gulp.watch('build/js/*.js');
-      gulp.watch('build/css/*.css');
-
     gulp.start(runTasks);
+    livereload.listen();
     gulp.watch(watchedFiles, runTasks);
 });
 
 
 // Default Task
-gulp.task('default', ['watch']);
-//gulp.task('default', runTasks);
+gulp.task('default', runTasks);

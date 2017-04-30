@@ -7,9 +7,9 @@ openFlexible('videos');
 
     if( $layout == 'thumbs' ){
 
-        // Lightbox scripts and styles
-        wp_enqueue_style('lightgallery-css');
-        wp_enqueue_script('lightgallery-js');
+      // Lightbox scripts and styles
+      wp_enqueue_style('lightgallery-css');
+      wp_enqueue_script('theme-lightgallery');
 
     }
 
@@ -65,7 +65,7 @@ openFlexible('videos');
                     $link = '//www.youtube.com/watch?v=' . $youtube_id . '&rel=0';
                     $thumb_img = '//img.youtube.com/vi/' . $youtube_id . '/hqdefault.jpg';
 
-                    echo '<li><a class="lightgallery-video" href="' . $link . '" style="background-image:url(\'' . $thumb_img . '\')">' . ($video_title != '' ? '<span>' . $video_title . '</span>' : '') . '</a></li>';
+                    echo '<li><a class="lightgallery-video" href="' . $link . '" style="background-image:url(\'' . $thumb_img . '\')">' . svgi('play-btn') . ($video_title != '' ? '<span class="video-title">' . $video_title . '</span>' : '') . '</a></li>';
 
                 endwhile;
 

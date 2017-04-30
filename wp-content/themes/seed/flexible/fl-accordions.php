@@ -1,27 +1,32 @@
 <?php
 // Enqueue script
-wp_enqueue_script('flexible-common');
+wp_enqueue_script('theme-jquery-ui');
 
 // Open Panel
 openFlexible('accordions');
 
-    // Open first by default?
-    $open_first = get_sub_field('open_first');
+  // Intro Content
+  if( get_sub_field('include_intro') ){
+    echo '<div class="intro-content">' . apply_filters('the_content', get_sub_field('intro_content')) . '</div>';
+  }
 
-    if( have_rows('accordions') ):
+  // Open first by default?
+  $open_first = get_sub_field('open_first');
 
-        echo '<div class="flexible-accordion" ' . ( ( $open_first == true ) ? 'data-open="true"' : 'data-open="false"') . '>';
+  if( have_rows('accordions') ):
 
-            while( have_rows('accordions') ): the_row();
+      echo '<div class="flexible-accordion" ' . ( ( $open_first == true ) ? 'data-open="true"' : 'data-open="false"') . '>';
 
-                echo '<h2>' . get_sub_field('heading') . '</h2>';
-                echo '<div>' . apply_filters('the_content', get_sub_field('content')) . '</div>';
+          while( have_rows('accordions') ): the_row();
 
-            endwhile;
+              echo '<h2>' . get_sub_field('heading') . '</h2>';
+              echo '<div>' . apply_filters('the_content', get_sub_field('content')) . '</div>';
 
-        echo '</div>';
+          endwhile;
 
-    endif;
+      echo '</div>';
+
+  endif;
 
 // Close Panel
 closeFlexible();

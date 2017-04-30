@@ -1,6 +1,5 @@
 // ========== Import ========== //
 @import 'colors';
-@import '../fonts/icons-reference';
 @import 'seed';
 @import 'nav';
 @import 'flexible';
@@ -221,28 +220,15 @@ input[type='checkbox']{display:inline}
 		position:relative;
 		display:block;
 		margin:0 0 20px;
-		padding:30px 20px 30px 80px;
+		padding:30px 20px;
 
 		border:0;
 		background:$required-red;
 
-		font-size:18px;line-height:1.5;font-weight:700;color:$white;
-		text-align:left;
+		font-size:17px;line-height:1.5;font-weight:700;color:$white;
+		text-align:center;
 
-		&::before{
-			@include icon;@include icon-warning;
-			position:absolute;
-			top:50%;left:20px;
-			margin-top:-17px;
-
-			font-size:34px;
-		}
-
-		@include below(480){
-			padding:70px 20px 20px;
-			text-align:center;
-			&::before{top:20px;left:50%;margin-left:-17px;margin-top:0}
-		}
+		@include below(480){padding:20px;}
 	}
 
 	// Form Fields
@@ -385,25 +371,14 @@ input[type='checkbox']{display:inline}
 	position:relative;
 	display:block;
 	margin:0 0 20px;
-	padding:30px 20px 30px 80px;
+	padding:30px 20px;
 
-	background:#5CB660;
+	background:$success-green;
 
-	font-size:18px;line-height:1.5;font-weight:700;color:$white;
+	font-size:17px;line-height:1.5;font-weight:700;color:$white;
+	text-align:center;
 
-	&::before{
-		@include icon; @include icon-email-open;
-		position:absolute;
-		top:50%;left:20px;
-		margin-top:-17px;
-		font-size:34px;
-	}
-
-	@include below(480){
-		padding:70px 20px 20px;
-		text-align:center;
-		&::before{top:20px;left:50%;margin-left:-17px;margin-top:0}
-	}
+	@include below(480){padding:20px;}
 }
 
 
@@ -445,12 +420,11 @@ $search-size: 50px;
 
 		font-size:18px;color:rgba(0,0,0,.3);
 
-		&::after{
-			@include icon; @include icon-mag;
-			width:$search-size;height:$search-size;line-height:$search-size;
-			text-align:center;
+		.svgi{
+			width:18px;height:18px;
+
+			&:hover{color:$label-color}
 		}
-		&:hover{color:$label-color}
 	}
 }
 
@@ -547,17 +521,17 @@ $footer-copy:#bbb;
 
 	li{
 		float:left;margin:0 20px 8px 0;
-		font-size:90%;color:#aaa;
+		font-size:14px;color:#aaa;
 
 		a{font-weight:300}
 
-		&::before{@include icon;padding-right:10px;}
-		&.post-details-date::before{@include icon-calendar;}
-		&.post-details-cats::before{@include icon-folder;}
-		&.post-details-tags::before{@include icon-tags;}
+		.svgi{
+			width:14px;height:14px;
+			margin-right:10px;
+		}
 	}
 }
-.post-thumbnail{@extend .alignright; @extend.shadow;margin-top:0}
+.post-thumbnail{@extend .alignright; @include shadow;margin-top:0}
 
 
 // =========== PAGINATION =========== //
@@ -632,34 +606,25 @@ $footer-copy:#bbb;
 
 			small{font-size:14px;font-weight:300;color:#aaa}
 
-			span{
+			.svgi{
 				position:absolute;
-				display:block;
-				top:0;width:30px;
-				height:100%;
+				top:50%;
+				width:12px;height:12px;
+				margin-top:-6px;
 
-				&::before{
-					@include icon;@include transition;
-					position:absolute;
-					top:50%;left:0;
-					width:100%;
-					margin-top:-6px;
-
-					font-size:12px;color:rgba(0,0,0,.2);
-					text-align:center;
-				}
+				color:rgba(0,0,0,.2);
 			}
 
 			&:hover{
 				background:$white;
-				span::before{color:rgba(0,0,0,.4)}
+				.svgi{color:rgba(0,0,0,.4)}
 			}
 		}
 
 		&:first-child a{
 			padding-left:35px;
 
-			span{left:0; &::before{@include icon-arrow-medium-left;} }
+			.svgi{left:9px}
 		}
 		&:last-child a{
 			text-align:right;
@@ -667,7 +632,7 @@ $footer-copy:#bbb;
 
 			border-top:0;
 
-			span{right:0; &::before{@include icon-arrow-medium-right;} }
+			.svgi{right:9px}
 		}
 	}
 }

@@ -45,8 +45,8 @@ if( have_rows('panels') ) :
 				break;
 
 			// Quote
-			case 'blockquote':
-				require_once(locate_template('flexible/fl-blockquote.php'));
+			case 'quote':
+				require_once(locate_template('flexible/fl-quote.php'));
 				break;
 
 			// Plain Code

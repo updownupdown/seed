@@ -53,8 +53,8 @@
 					<a id="nav-logo" href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('template_url'); ?>/images/logo.svg" onerror="this.src='<?php bloginfo('template_url'); ?>/images/logo.png';this.onerror=null;" width="130" height="80" alt="logo" /></a>
 
 					<ul id="mobile-nav-sec-menu" class="mobile-nav">
-						<li><a id="ssm-phone" href="tel:5551241234"><span>555-123-1235</span></a></li>
-						<li><a id="ssm-email" href="<?php bloginfo('url'); ?>/contact/"><span>Email Us</span></a></li>
+						<li><a href="tel:5551241234"><?php e_svgi('phone'); ?><span class="text">555-123-1235</span></a></li>
+						<li><a href="<?php bloginfo('url'); ?>/contact/"><?php e_svgi('mail'); ?><span class="text">Email Us</span></a></li>
 					</ul>
 
 					<div id="nav-wrap">
@@ -80,7 +80,7 @@
 
 					<a id="mobile-nav-hamburger" class="mobile-nav mobile-nav-toggle" href="javascript:void(0);"><div><span></span><span></span><span></span><span></span></div></a>
 
-					<a id="mobile-nav-search-toggle" class="mobile-nav mobile-nav-toggle" href="javascript:void(0);"></a>
+					<a id="mobile-nav-search-toggle" class="mobile-nav mobile-nav-toggle" href="javascript:void(0);"><?php e_svgi('search'); ?></a>
 
 					<div id="mobile-nav-mask" class="mobile-nav mobile-nav-toggle"></div>
 

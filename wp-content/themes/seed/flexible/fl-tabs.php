@@ -1,9 +1,14 @@
 <?php
 // Enqueue script
-wp_enqueue_script('flexible-common');
+wp_enqueue_script('theme-jquery-ui');
 
 // Open Panel
 openFlexible('tabs');
+
+    // Intro Content
+    if( get_sub_field('include_intro') ){
+      echo '<div class="intro-content">' . apply_filters('the_content', get_sub_field('intro_content')) . '</div>';
+    }
 
     // Prepare Content
     $tabs_headings = '';
