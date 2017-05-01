@@ -199,13 +199,6 @@ $('.acf-map').each(function(){
 	// create new map
 	var map = new_map( $(this) );
 
-
-	// remove overlay
-	$('.flexible-map-overlay').click(function(){
-		$(this).fadeOut(500);
-	});
-
-
 });
 
 })(jQuery);

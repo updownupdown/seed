@@ -27,9 +27,6 @@ $map_options_data .= ' data-zoom="' . $zoom . '"';
 // Open Panel
 openFlexible('map', null, $bypass_row);
 
-    // Map overlay
-    echo '<div class="flexible-map-overlay"><span>Tap to interact</span></div>';
-
     // ACF Map
     echo '<div class="acf-map height-' . $map_height . '"' . $map_options_data . '>';
 

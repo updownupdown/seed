@@ -617,27 +617,6 @@ $gallery-bg: $white;
 // ========== Google Map ========== //
 .flexible-map{
 
-	// Map Overlay
-	.flexible-map-overlay{
-		position:absolute;z-index:3;
-		top:0;left:0;
-		width:100%;height:100%;
-
-		background:rgba(0,0,0,0);
-
-		@include above(1024){display:none}
-
-		span {
-			position: absolute;z-index:2;
-			bottom: 15px;left: 15px;
-			padding: 12px 15px;
-
-			background:rgba(0,0,0,.6);
-
-			font-size:14px;color:$white;font-weight:700;
-		}
-	}
-
 	// ACF Map
 	.acf-map {
 		position:relative;z-index:2;
